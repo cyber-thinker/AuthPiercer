@@ -2,8 +2,7 @@
 Deauthentication Tool Either for a specifc host on a network on the whole network
 AuthPiercer Guideline
 
-###Dependencies###
-
+### Dependencies
 1-Aircrack-ng package 
 to install it (sudo apt-get install -y aircrack-ng)
 
@@ -12,7 +11,7 @@ to install it (sudo apt-get install -y wireshark)
 
 3-you need a wireless adapter that supports monitor mode
 
-###How to run AuthPiercer###
+### How to run AuthPiercer
 There is 2 ways:
 Option1:
 	-use the command 'sudo bash AuthPiercer.sh -i <interface> -m <MacAddress>
@@ -26,8 +25,7 @@ and the -m take a macaddress as argument to change the mac address of the wirele
 
 you can still use the -h switch to help you
 
-###Explaining the functionality of Authpiercer###
-
+### Explaining the functionality of AuthPiercer 
 After running the script successfully (detecting the wireless adapter and entering a correct mac address)
 you will be face by 2 choices:
 	-target a specific host in a network
