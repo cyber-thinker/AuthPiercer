@@ -72,7 +72,7 @@ if [[ "$interface" == "" || "$mac" == "" ]];then
 	exit 1
 fi
 ifconfig $interface down
-ifconfig $interface hw ether $mac
+macchanger -m $mac $interface
 iwconfig $interface mode monitor
 ifconfig $interface up
 echo -e "${gray}[1]${nc} Disconnect a Specific Target in The Network"
@@ -82,7 +82,8 @@ read choice
 case $choice in
 	1) source ./specific-attack.sh $interface ;;
 	2) source ./general-attack.sh $interface ;;
-	*) echo -e "${red}[-]${nc} Invalid Input" ;;
+	*) echo -e "${red}[-]${nc} Invalid Input"
+	    exit 1 ;;
 esac
 
  
