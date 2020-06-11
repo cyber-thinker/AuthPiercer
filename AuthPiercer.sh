@@ -12,7 +12,7 @@ function banner()
 function VerifyInterface()
 {
 	local inter=$1
-	iwconfig $inter &>/dev/null
+	iwconfig "$inter" &>/dev/null
 	case $? in
 	0) echo -e "${yellow}[+]${nc} Wireless interface detected";;
 	161) echo -e "${red}[-]${nc} sorry but this interface is not wireless"
@@ -71,21 +71,18 @@ if [[ "$interface" == "" || "$mac" == "" ]];then
 	echo -e "${red}[-]${nc} missing argument"
 	exit 1
 fi
-ifconfig $interface down
-macchanger -m $mac $interface
-iwconfig $interface mode monitor
-ifconfig $interface up
+ifconfig "$interface" down
+macchanger -m "$mac" "$interface"
+iwconfig "$interface" mode monitor
+ifconfig "$interface" up
 echo -e "${gray}[1]${nc} Disconnect a Specific Target in The Network"
 echo -e "${gray}[2]${nc} Disconnect The whole Network (less accurate if there is too much host)"
 echo -ne "${gray}[*]${nc}Enter your choice --> "
 read choice
 case $choice in
-	1) source ./specific-attack.sh $interface ;;
-	2) source ./general-attack.sh $interface ;;
+	1) source ./specific-attack.sh "$interface" ;;
+	2) source ./general-attack.sh "$interface" ;;
 	*) echo -e "${red}[-]${nc} Invalid Input"
 	    exit 1 ;;
 esac
-
- 
-
 
